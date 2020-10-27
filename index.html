@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Resonym Community Night Vote</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css">
+	<link rel="stylesheet" href="./style.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" async></script>
+	<script src="./data.js" defer></script>
+</head>
+<body>
+	<div id="app">
+		<h1>Resonym Community Night</h1>
+		<hr>
+		<label for="name">Discord Username:</label>
+		<input type="text" name="name" id="name" v-model="name">
+		<hr>
+		<h2>Games:</h2>
+		<div
+			class="game"
+			v-for="game in games"
+		>
+			<input
+				type="checkbox"
+				:name="game.name"
+				:id="game.id + '-input'"
+				v-model="game.selected"
+			>
+			<label :for="game.id + '-input'">{{ game.name }}</label>
+		</div>
+		<hr>
+		<button
+			:disabled="hasnt_selected"
+			@click.stop="submit_form()"
+		>
+			Submit
+		</button>
+	</div>
+</body>
+</html>
