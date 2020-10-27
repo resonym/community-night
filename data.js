@@ -104,6 +104,14 @@ let page = new Vue({
 				]
 			},
 			{
+				// Hosted on https://www.playbananagrams.com
+				name: `Bananagrams`,
+				id: `bananagrams`,
+				categories: [
+					`tabletop`,
+				],
+			},
+			{
 				name: `Tabletop Simulator (Suggest Game)`,
 				id: `tts`,
 				categories: [
