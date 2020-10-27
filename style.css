@@ -1,0 +1,13 @@
+.game {
+	margin-bottom: 20px;
+}
+
+#app input[type="text"] {
+	vertical-align: baseline;
+	display: inline-block;
+	margin: 5px;
+}
+
+.extra-note p {
+	margin-top: 0;
+}

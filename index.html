@@ -29,6 +29,26 @@
 				v-model="game.selected"
 			>
 			<label :for="game.id + '-input'">{{ game.name }}</label>
+			<div v-if="game.extra && game.selected" class="game-extras">
+				<div
+					class="extra"
+					v-for="extra in game.extra"
+					:id="game.id + '-extra'"
+				>
+					<div v-if="extra.type !== 'note'" class="extra-input">
+						<label :for="extra.id">{{ extra.name }}:</label>
+						<input
+							:type="extra.type"
+							:id="extra.id"
+							v-model="extra.value"
+						>
+					</div>
+					<div
+						v-else
+						class="extra-note"
+					><p v-html="extra.value"></p></div>
+				</div>
+			</div>
 		</div>
 		<hr>
 		<button
