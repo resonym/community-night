@@ -51,13 +51,13 @@
 			</div>
 		</div>
 		<hr>
+		<p v-if="submitted">You've already submitted, you don't need to do it again!</p>
 		<button
 			:disabled="hasnt_selected || submitted"
 			@click.stop="submit_form()"
 		>
 			Submit
 		</button>
-		<p v-if="submitted">You've already submitted, you don't need to do it again!</p>
 	</div>
 </body>
 </html>
