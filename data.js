@@ -2,6 +2,7 @@ let page = new Vue({
 	el: `#app`,
 	data: {
 		webhook_uri: `https://discord.com/api/webhooks/770548382548230174/jtrY--rV6aiyPPV1pp1RAw1rLeIo33Kckt-4zJzfp9n54NJQftZtj2QStXvBgOP6TnUY`,
+		submitted: false,
 		name: ``,
 		hosts: {
 			alkali: {
@@ -228,6 +229,7 @@ let page = new Vue({
 				],
 				"username": "Game Night Submission"
 			}).then(() => {
+				this.submitted = true;
 				alert(`Your submission has been recorded successfully!`);
 			}).catch(err => {
 				alert(`Something went wrong with your submission, please try again.`);
