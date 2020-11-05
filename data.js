@@ -118,7 +118,21 @@ let page = new Vue({
 					`tabletop`, `suggest`, `tts`
 				],
 				extra: [
-					{ name: `Game Suggestion`, type: `text`, id: `tts-suggestion`, value: `` },
+					{
+						name: `Game Suggestion`,
+						type: `text`,
+						id: `tts-suggestion`,
+						value: ``,
+						error: ``,
+						validate(game) {
+							if (game.value.length === 0) {
+								game.error = `Error: Cannot leave suggestion blank.`;
+								return false;
+							};
+							game.error = ``;
+							return true;
+						}
+					},
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
 				]
 			},
@@ -129,8 +143,22 @@ let page = new Vue({
 					`tabletop`, `suggest`, `tabletopia`
 				],
 				extra: [
-					{ name: `Game Suggestion`, type: `text`, id: `tts-suggestion`, value: `` },
-				]
+					{
+						name: `Game Suggestion`,
+						type: `text`,
+						id: `tabletopia-suggestion`,
+						value: ``,
+						error: ``,
+						validate(game) {
+							if (game.value.length === 0) {
+								game.error = `Error: Cannot leave suggestion blank.`;
+								return false;
+							};
+							game.error = ``;
+							return true;
+						}
+					},
+				],
 			},
 		],
 	},
@@ -193,6 +221,20 @@ let page = new Vue({
 				};
 			};
 			return true;
+		},
+		invalid_extra_input() {
+			for (var game of this.games) {
+				if (game.selected && game.extra) {
+					for (var extra of game.extra) {
+						if (extra.type !== `note`) {
+							if (!extra.validate(extra)) {
+								return true;
+							};
+						};
+					};
+				};
+			};
+			return false;
 		},
 	},
 	methods: {

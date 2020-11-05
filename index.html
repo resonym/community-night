@@ -38,8 +38,20 @@
 					v-for="extra in game.extra"
 					:id="game.id + '-extra'"
 				>
-					<div v-if="extra.type !== 'note'" class="extra-input">
-						<label :for="extra.id">{{ extra.name }}:</label>
+					<div
+						v-if="extra.type !== 'note'"
+						class="extra-input"
+						:class="extra.validate(extra) ? 'valid' : 'invalid'"
+					>
+						<label :for="extra.id">
+							{{ extra.name }}:
+							<span
+								v-if="!extra.validate(extra)"
+								class="error"
+							>
+								{{ extra.error }}
+							</span>
+						</label>
 						<input
 							:type="extra.type"
 							:id="extra.id"

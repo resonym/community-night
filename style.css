@@ -11,3 +11,21 @@
 .extra-note p {
 	margin-top: 0;
 }
+
+.extra-input {
+	position: relative;
+}
+.extra-input label .error {
+	position: absolute;
+	font-size: smaller;
+    font-style: italic;
+	bottom: 10px;
+    color: red;
+}
+.extra-input input {
+	margin-bottom: 30px !important;
+}
+
+.invalid input {
+	box-shadow: 0 0 0 2px #ee0000;
+}
