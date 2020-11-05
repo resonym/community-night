@@ -65,14 +65,16 @@
 				</div>
 			</div>
 		</div>
-		<hr>
-		<p v-if="submitted">You've already submitted, you don't need to do it again!</p>
-		<button
-			:disabled="hasnt_selected || submitted"
-			@click.stop="submit_form()"
-		>
-			Submit
-		</button>
+		<div v-if="!view_games">
+			<hr>
+			<p v-if="submitted">You've already submitted, you don't need to do it again!</p>
+			<button
+				:disabled="name.length === 0 || hasnt_selected || submitted || invalid_extra_input"
+				@click.stop="submit_form()"
+			>
+				Submit
+			</button>
+		</div>
 	</div>
 </body>
 </html>
