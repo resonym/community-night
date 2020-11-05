@@ -184,6 +184,8 @@ let page = new Vue({
 
 			let categories = qs.getAll(`c`);
 			let host = qs.get(`h`);
+			let games_qs = qs.getAll(`g`);
+			let hide_games = qs.getAll(`hg`);
 
 			host = this.hosts[host];
 
@@ -220,6 +222,13 @@ let page = new Vue({
 							break;
 						};
 					};
+				};
+
+				// Check individual games list and if
+				if (games_qs) {
+					if (games_qs.includes(game.id) && !hide_games?.includes(game.id)) {
+						games.push(game);
+					}
 				};
 			};
 			return games;
