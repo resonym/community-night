@@ -245,6 +245,10 @@ let page = new Vue({
 			};
 			return true;
 		},
+		view_games() {
+			let qs = new URLSearchParams(window.location.search);
+			return qs.has(`view`);
+		},
 		invalid_extra_input() {
 			for (var game of this.games) {
 				if (game.selected && game.extra) {
