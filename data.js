@@ -34,6 +34,7 @@ let page = new Vue({
 					{ type: `note`, value: `<i>This game is paid when on a PC, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/945360/Among_Us/" target=_blank rel=noopener>Purchase on Steam</a></i>`},
 					{ type: `note`, value: `<i>You can get this game for free (with ads) on the Apple App Store and Google Play Store:<br><a href="https://apps.apple.com/us/app/among-us/id1351168404" target=_blank rel=noopener>Get on Apple App Store</a><br><a href="https://play.google.com/store/apps/details?id=com.innersloth.spacemafia&hl=en_CA&gl=US" target=_blank rel=noopener>Get on Google Play Store</a></i>` }
 				],
+				selected: false,
 			},
 			{
 				name: `Fake Artist Goes To New York`,
@@ -41,6 +42,7 @@ let page = new Vue({
 				categories: [
 					`tabletop`, `social-deduction`, `drawing`
 				],
+				selected: false,
 			},
 			{
 				name: `Project Winter`,
@@ -51,6 +53,7 @@ let page = new Vue({
 				extra: [
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/774861/Project_Winter/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
 				],
+				selected: false,
 			},
 			{
 				name: `Jackbox`,
@@ -58,6 +61,7 @@ let page = new Vue({
 				categories: [
 					`jackbox`, `video`
 				],
+				selected: false,
 			},
 			{
 				name: `Minecraft Minigames (Java Edition)`,
@@ -69,6 +73,7 @@ let page = new Vue({
 					{ type: `note`, value: `<i>Minecraft is a paid game, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://www.minecraft.net/en-us/get-minecraft" target=_blank rel=noopener>Purchase Directly (Select "Computer" and make sure it's not the Windows 10 edition if you select Windows)</a></i>`},
 					{ type: `note`, value: `<i>This is using the Java Edition of Minecraft, if you open the game and do not see "Java Edition" under the title on the main menu, then the version you have is not the Java Edition.</i>` },
 				],
+				selected: false,
 			},
 			{
 				name: `Monarch (Tabletop Simulator)`,
@@ -79,7 +84,8 @@ let page = new Vue({
 				extra: [
 					{ type: `note`, value: `<i>This game only has support for 4 players, if more than 4 players, we will split into groups of 2-4 people.</i>` },
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
-				]
+				],
+				selected: false,
 			},
 			{
 				name: `Mechanica (Tabletop Simulator)`,
@@ -90,7 +96,8 @@ let page = new Vue({
 				extra: [
 					{ type: `note`, value: `<i>This game only has support for 4 players, if more than 4 players, we will split into groups of 2-4 people.</i>` },
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
-				]
+				],
+				selected: false,
 			},
 			{
 				name: `Surrealist Dinner Party (Tabletop Simulator / Tabletopia)`,
@@ -101,7 +108,8 @@ let page = new Vue({
 				extra: [
 					{ type: `note`, value: `<i>This game only has support for 4 players, if more than 4 players, we will split into groups of 2-4 people.</i>` },
 					{ type: `note`, value: `<i>Tabletop Simulator is paid. You do not need Tabletop Simulator to participate because Tabletopia is free and we will use that if people don't own Tabletop Simulator.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
-				]
+				],
+				selected: false,
 			},
 			{
 				// Hosted on https://www.playbananagrams.com
@@ -110,6 +118,7 @@ let page = new Vue({
 				categories: [
 					`tabletop`,
 				],
+				selected: false,
 			},
 			{
 				name: `Tabletop Simulator (Suggest Game)`,
@@ -134,7 +143,8 @@ let page = new Vue({
 						}
 					},
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
-				]
+				],
+				selected: false,
 			},
 			{
 				name: `Tabletopia (Suggest Game)`,
@@ -159,6 +169,7 @@ let page = new Vue({
 						}
 					},
 				],
+				selected: false,
 			},
 		],
 	},
@@ -238,6 +249,16 @@ let page = new Vue({
 		},
 	},
 	methods: {
+		select_all() {
+			for (var game of this.games) {
+				game.selected = true;
+			};
+		},
+		deselect_all() {
+			for (var game of this.games) {
+				game.selected = false;
+			};
+		},
 		submit_form() {
 			if (!this.name) {
 				alert(`Discord username cannot be left blank`);
