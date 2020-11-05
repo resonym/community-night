@@ -178,8 +178,7 @@ let page = new Vue({
 			let qs = new URLSearchParams(window.location.search);
 
 			// See if we are just displaying all games
-			let all = qs.get(`a`);
-			if (all != null) { return this.game_list; };
+			if (qs.has(`a`) || qs.has(`view`)) { return this.game_list; };
 
 			let games = [];
 
