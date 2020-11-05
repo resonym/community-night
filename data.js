@@ -215,7 +215,11 @@ let page = new Vue({
 					};
 				};
 
+				// Check categories list
 				if (categories) {
+					if (hide_games?.includes(game)) {
+						continue;
+					};
 					for (var cat of categories) {
 						if (game.categories.includes(cat)) {
 							games.push(game);
