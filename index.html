@@ -21,6 +21,10 @@
 		<p>
 			Select all games you would like to play:
 		</p>
+		<div v-if="!view_games">
+			<button @click.stop="select_all">Select All</button>
+			<button @click.stop="deselect_all">Deselect All</button>
+		</div>
 		<div
 			class="game"
 			v-for="game in games"
