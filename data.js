@@ -182,10 +182,10 @@ let page = new Vue({
 
 			let games = [];
 
-			let categories = qs.getAll(`c`);
+			let categories = qs.getAll(`c`).map(x => x.toLowerCase());
 			let host = qs.get(`h`);
-			let games_qs = qs.getAll(`g`);
-			let hide_games = qs.getAll(`hg`);
+			let games_qs = qs.getAll(`g`).map(x => x.toLowerCase());
+			let hide_games = qs.getAll(`hg`).map(x => x.toLowerCase());
 
 			host = this.hosts[host];
 
