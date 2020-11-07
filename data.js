@@ -79,7 +79,7 @@ let page = new Vue({
 				name: `Monarch (Tabletop Simulator)`,
 				id: `monarch`,
 				categories: [
-					`tabletop`, `tts`
+					`tabletop`, `tts`, `resonym`
 				],
 				extra: [
 					{ type: `note`, value: `<i>This game only has support for 4 players, if more than 4 players, we will split into groups of 2-4 people.</i>` },
@@ -91,7 +91,7 @@ let page = new Vue({
 				name: `Mechanica (Tabletop Simulator)`,
 				id: `mechanica`,
 				categories: [
-					`tabletop`, `tts`
+					`tabletop`, `tts`, `resonym`
 				],
 				extra: [
 					{ type: `note`, value: `<i>This game only has support for 4 players, if more than 4 players, we will split into groups of 2-4 people.</i>` },
@@ -103,7 +103,7 @@ let page = new Vue({
 				name: `Surrealist Dinner Party (Tabletop Simulator / Tabletopia)`,
 				id: `surrealist`,
 				categories: [
-					`tabletop`, `tts`, `tabletopia`
+					`tabletop`, `tts`, `tabletopia`, `resonym`
 				],
 				extra: [
 					{ type: `note`, value: `<i>This game only has support for 4 players, if more than 4 players, we will split into groups of 2-4 people.</i>` },
