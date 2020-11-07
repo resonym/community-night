@@ -171,6 +171,31 @@ let page = new Vue({
 				],
 				selected: false,
 			},
+			{
+				name: `Suggest a New Game!`,
+				id: `new-game`,
+				categories: [
+					`suggest`,
+				],
+				extra: [
+					{
+						name: `Suggestion`,
+						type: `text`,
+						id: `new-game-suggestion`,
+						value: ``,
+						error: ``,
+						validate(game) {
+							if (game.value.length === 0) {
+								game.error = `Error: Cannot leave suggestion blank.`;
+								return false;
+							};
+							game.error = ``;
+							return true;
+						}
+					},
+				],
+				selected: false,
+			},
 		],
 	},
 	computed: {
