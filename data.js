@@ -1,20 +1,20 @@
 let page = new Vue({
 	el: `#app`,
 	data: {
-		webhook_uri: `https://discord.com/api/webhooks/770548382548230174/jtrY--rV6aiyPPV1pp1RAw1rLeIo33Kckt-4zJzfp9n54NJQftZtj2QStXvBgOP6TnUY`,
+		webhook_uri: null,
 		submitted: false,
 		name: ``,
 		hosts: {
 			alkali: {
-				games: [`minecraft`, `new-game`],
+				games: [ `minecraft`, `new-game` ],
 				categories: [
 					`tabletop`, `jackbox`, `social-deduction`
 				],
-				hide: []
+				hide: [ `viticulture` ]
 			},
 			ray: {
-				games: [],
-				categories: [],
+				games: [ `viticulture` ],
+				categories: [ `social-deduction` ],
 				hide: [],
 			},
 			max: {
@@ -144,6 +144,15 @@ let page = new Vue({
 					},
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
 				],
+				selected: false,
+			},
+			{
+				name: `Viticulture (Tabletopia)`,
+				id: `viticulture`,
+				categories: [
+					`tabletop`, `tabletopia`
+				],
+				extra: [],
 				selected: false,
 			},
 			{
