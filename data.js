@@ -6,7 +6,7 @@ let page = new Vue({
 		name: ``,
 		hosts: {
 			alkali: {
-				games: [ `minecraft`, `new-game` ],
+				games: [ `mc-minigames`, `new-game` ],
 				categories: [
 					`tabletop`, `jackbox`, `social-deduction`
 				],
