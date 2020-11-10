@@ -10,12 +10,18 @@ let page = new Vue({
 				categories: [
 					`tabletop`, `jackbox`, `social-deduction`
 				],
-				hide: [ `viticulture` ]
+				hide: {
+					games: [ `viticulture` ],
+					categories: []
+				},
 			},
 			ray: {
 				games: [ `viticulture` ],
 				categories: [ `social-deduction` ],
-				hide: [],
+				hide: {
+					games: [],
+					categories: [ `resonym` ]
+				},
 			},
 			max: {
 				games: [],
@@ -235,8 +241,13 @@ let page = new Vue({
 						continue;
 					}
 
+					// Hide categories the host doesn't like
+					if (game.categories.filter(value => host.hide.categories.includes(value)).length > 0) {
+						continue;
+					};
+
 					// Check if the host is not hiding the game from a category
-					if (!host.hide.includes(game.id)) {
+					if (!host.hide.games.includes(game.id)) {
 
 						// Check if the game is in a category the host can run
 						for (var cat of host.categories) {
