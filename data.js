@@ -24,9 +24,12 @@ let page = new Vue({
 				},
 			},
 			max: {
-				games: [],
-				categories: [],
-				hide: [],
+				games: [ `bananagrams`, `mc-minigames` ],
+				categories: [ `tts`, `social-deduction` ],
+				hide: {
+					games: [ `fake-artist` ],
+					categories: [ `resonym` ]
+				},
 			}
 		},
 		game_list: [
