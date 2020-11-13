@@ -1,7 +1,7 @@
 let page = new Vue({
 	el: `#app`,
 	data: {
-		webhook_uri: null,
+		webhook_uri: `https://discord.com/api/webhooks/770548382548230174/jtrY--rV6aiyPPV1pp1RAw1rLeIo33Kckt-4zJzfp9n54NJQftZtj2QStXvBgOP6TnUY`,
 		submitted: false,
 		name: ``,
 		hosts: {
