@@ -34,8 +34,9 @@ let page = new Vue({
 		},
 		game_list: [
 			{
-				name: `Among Us (Minimum 5 players)`,
+				name: `Among Us`,
 				id: `among-us`,
+				min_players: 5,
 				categories: [
 					`social-deduction`, `video`
 				],
@@ -229,61 +230,46 @@ let page = new Vue({
 			let host = qs.get(`h`);
 			let games_qs = qs.getAll(`g`).map(x => x.toLowerCase());
 			let hide_games = qs.getAll(`hg`).map(x => x.toLowerCase());
+			let hide_categories = qs.getAll(`hc`).map(x => x.toLowerCase());
 
 			host = this.hosts[host];
 
 			// Check each game in the array
 			for (var game of this.game_list) {
 
-				// Ensure that host is defined
+				// Check the host's alias
 				if (host) {
-
-					// Check if the host can run the game
-					if (host.games.includes(game.id)) {
+					if (this.show_for_host(host, game)) {
 						games.push(game);
-						continue;
-					}
-
-					// Hide categories the host doesn't like
-					if (game.categories.filter(value => host.hide.categories.includes(value)).length > 0) {
-						continue;
-					};
-
-					// Check if the host is not hiding the game from a category
-					if (!host.hide.games.includes(game.id)) {
-
-						// Check if the game is in a category the host can run
-						for (var cat of host.categories) {
-							if (game.categories.includes(cat)) {
-								games.push(game);
-								break;
-							};
-						};
 						continue;
 					};
 				};
 
 				// Check categories list
 				if (categories) {
-					if (hide_games?.includes(game)) {
+					if (this.show_category(categories, game, hide_categories, hide_games)) {
+						games.push(game);
 						continue;
-					};
-					for (var cat of categories) {
-						if (game.categories.includes(cat)) {
-							games.push(game);
-							break;
-						};
 					};
 				};
 
-				// Check individual games list and if
+				// Check individual games list
 				if (games_qs) {
-					if (games_qs.includes(game.id) && !hide_games?.includes(game.id)) {
+					if (this.show_game(games_qs, game, hide_games)) {
 						games.push(game);
+						continue;
 					}
 				};
 			};
 			return games;
+		},
+		non_featured_games() {
+			let features = new URLSearchParams(window.location.search).getAll(`feature`);
+			return this.games.filter(game => !features.includes(game.id))
+		},
+		featured_games() {
+			let features = new URLSearchParams(window.location.search).getAll(`feature`);
+			return this.games.filter(game => features.includes(game.id))
 		},
 		hasnt_selected() {
 			for (var game of this.game_list) {
@@ -313,6 +299,46 @@ let page = new Vue({
 		},
 	},
 	methods: {
+		show_for_host(host, game) {
+			return this.show_game(host.games, game.id, host.hide.games)
+				|| this.show_category(host.categories, game, host.hide.categories, host.hide.games);
+		},
+		show_game(games_list, game, hidden_games) {
+			return (games_list.includes(game.id)) && (!hidden_games.includes(game.id))
+		},
+		show_category(categories, game, hidden_categories, hidden_games) {
+			let show = false;
+
+			for (var category of categories) {
+				if (game.categories.includes(category)) {
+					if (!hidden_games.includes(game.id)) {
+						show = true;
+						break;
+					}
+				};
+			};
+
+			// Check if the game contains a category that is being hidden
+			for (var category of hidden_categories) {
+				if (game.categories.includes(category)) {
+					return false;
+				};
+			};
+
+			return show;
+		},
+		compare_games(a, b) {
+			let features =
+			console.log(features)
+
+			if (features.includes(a.id)) {
+				return -1
+			} else if (features.includes(b.id)) {
+				return 1
+			}else{
+				return 0
+			};
+		},
 		select_all() {
 			for (var game of this.games) {
 				game.selected = true;

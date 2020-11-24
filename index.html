@@ -17,6 +17,67 @@
 		<label for="name">Discord Username:</label>
 		<input type="text" name="name" id="name" v-model="name">
 		<hr>
+		<div
+			v-if="featured_games"
+		>
+			<h2>Featured Games:</h2>
+			<p>
+				Featured games are those that the host is encouraging people to
+				play for this game night.
+			</p>
+			<div
+				class="game"
+				v-for="game in featured_games"
+			>
+				<input
+					type="checkbox"
+					:name="game.name"
+					:id="game.id + '-input'"
+					v-model="game.selected"
+				>
+				<label :for="game.id + '-input'">
+					{{ game.name }}
+					<span
+						v-if="game.min_players"
+					>
+						(Minimum {{ game.min_players }} players)
+					</span>
+				</label>
+				<div v-if="game.extra && game.selected" class="game-extras">
+					<div
+						class="extra"
+						v-for="extra in game.extra"
+						:id="game.id + '-extra'"
+					>
+						<div
+							v-if="extra.type !== 'note'"
+							class="extra-input"
+							:class="extra.validate(extra) ? 'valid' : 'invalid'"
+						>
+							<label :for="extra.id">
+								{{ extra.name }}:
+								<span
+									v-if="!extra.validate(extra)"
+									class="error"
+								>
+									{{ extra.error }}
+								</span>
+							</label>
+							<input
+								:type="extra.type"
+								:id="extra.id"
+								v-model="extra.value"
+							>
+						</div>
+						<div
+							v-else
+							class="extra-note"
+						><p v-html="extra.value"></p></div>
+					</div>
+				</div>
+			</div>
+			<hr>
+		</div>
 		<h2>Games:</h2>
 		<p>
 			Select all games you would like to play:
@@ -27,7 +88,7 @@
 		</div>
 		<div
 			class="game"
-			v-for="game in games"
+			v-for="game in non_featured_games"
 		>
 			<input
 				type="checkbox"
@@ -35,7 +96,14 @@
 				:id="game.id + '-input'"
 				v-model="game.selected"
 			>
-			<label :for="game.id + '-input'">{{ game.name }}</label>
+			<label :for="game.id + '-input'">
+				{{ game.name }}
+				<span
+					v-if="game.min_players"
+				>
+					(Minimum {{ game.min_players }} players)
+				</span>
+			</label>
 			<div v-if="game.extra && game.selected" class="game-extras">
 				<div
 					class="extra"
