@@ -300,7 +300,8 @@ let page = new Vue({
 	},
 	methods: {
 		show_for_host(host, game) {
-			return this.show_game(host.games, game.id, host.hide.games)
+			console.log(host)
+			return this.show_game(host.games, game, host.hide.games)
 				|| this.show_category(host.categories, game, host.hide.categories, host.hide.games);
 		},
 		show_game(games_list, game, hidden_games) {
