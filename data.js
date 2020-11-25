@@ -17,7 +17,7 @@ let page = new Vue({
 			},
 			ray: {
 				games: [ `viticulture` ],
-				categories: [ `social-deduction` ],
+				categories: [ `social-deduction`, `suggest` ],
 				hide: {
 					games: [],
 					categories: [ `resonym` ]
