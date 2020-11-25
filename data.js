@@ -60,6 +60,7 @@ let page = new Vue({
 				categories: [
 					`video`, `social-deduction`,
 				],
+				min_players: 5,
 				extra: [
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/774861/Project_Winter/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
 				],
