@@ -14,9 +14,11 @@
 	<div id="app">
 		<h1>Resonym Community Night</h1>
 		<hr>
-		<label for="name">Discord Username:</label>
-		<input type="text" name="name" id="name" v-model="name">
-		<hr>
+		<div v-if="!view_games">
+			<label for="name">Discord Username:</label>
+			<input type="text" name="name" id="name" v-model="name">
+			<hr>
+		</div>
 		<div
 			v-if="featured_games"
 		>
