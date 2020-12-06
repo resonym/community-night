@@ -87,6 +87,15 @@ let page = new Vue({
 				selected: false,
 			},
 			{
+				// Hosted on https://www.playbananagrams.com
+				name: `Bananagrams`,
+				id: `bananagrams`,
+				categories: [
+					`tabletop`,
+				],
+				selected: false,
+			},
+			{
 				name: `Monarch (Tabletop Simulator)`,
 				id: `monarch`,
 				categories: [
@@ -119,15 +128,6 @@ let page = new Vue({
 				extra: [
 					{ type: `note`, value: `<i>This game only has support for 4 players, if more than 4 players, we will split into groups of 2-4 people.</i>` },
 					{ type: `note`, value: `<i>Tabletop Simulator is paid. You do not need Tabletop Simulator to participate because Tabletopia is free and we will use that if people don't own Tabletop Simulator.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
-				],
-				selected: false,
-			},
-			{
-				// Hosted on https://www.playbananagrams.com
-				name: `Bananagrams`,
-				id: `bananagrams`,
-				categories: [
-					`tabletop`,
 				],
 				selected: false,
 			},
