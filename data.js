@@ -11,7 +11,7 @@ let page = new Vue({
 					`tabletop`, `jackbox`, `social-deduction`
 				],
 				hide: {
-					games: [ `viticulture` ],
+					games: [ `viticulture`, `project-winter` ],
 					categories: []
 				},
 			},
