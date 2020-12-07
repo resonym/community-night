@@ -144,12 +144,13 @@ let page = new Vue({
 						id: `tts-suggestion`,
 						value: ``,
 						error: ``,
-						validate(game) {
-							if (game.value.length === 0) {
-								game.error = `Error: Cannot leave suggestion blank.`;
+						validate(game_list) {
+							if (this.value.length === 0) {
+								this.error = `Error: Cannot leave suggestion blank.`;
 								return false;
 							};
-							game.error = ``;
+
+							this.error = ``;
 							return true;
 						}
 					},
@@ -179,12 +180,13 @@ let page = new Vue({
 						id: `tabletopia-suggestion`,
 						value: ``,
 						error: ``,
-						validate(game) {
-							if (game.value.length === 0) {
-								game.error = `Error: Cannot leave suggestion blank.`;
+						validate(game_list) {
+							if (this.value.length === 0) {
+								this.error = `Error: Cannot leave suggestion blank.`;
 								return false;
 							};
-							game.error = ``;
+
+							this.error = ``;
 							return true;
 						}
 					},
@@ -204,12 +206,12 @@ let page = new Vue({
 						id: `new-game-suggestion`,
 						value: ``,
 						error: ``,
-						validate(game) {
-							if (game.value.length === 0) {
-								game.error = `Error: Cannot leave suggestion blank.`;
+						validate(game_list) {
+							if (this.value.length === 0) {
+								this.error = `Error: Cannot leave suggestion blank.`;
 								return false;
 							};
-							game.error = ``;
+							this.error = ``;
 							return true;
 						}
 					},
