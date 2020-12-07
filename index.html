@@ -30,7 +30,7 @@
 			<hr>
 		</div>
 		<div
-			v-if="featured_games"
+			v-if="featured_games.length > 0"
 		>
 			<h2>Featured Games:</h2>
 			<p>
@@ -55,7 +55,7 @@
 						(Minimum {{ game.min_players }} players)
 					</span>
 				</label>
-				<div v-if="game.extra && game.selected" class="game-extras">
+				<div v-if="game.selected && game.extra" class="game-extras">
 					<div
 						class="extra"
 						v-for="extra in game.extra"
@@ -64,12 +64,12 @@
 						<div
 							v-if="extra.type !== 'note'"
 							class="extra-input"
-							:class="extra.validate(extra) ? 'valid' : 'invalid'"
+							:class="extra.validate(game_list) ? 'valid' : 'invalid'"
 						>
 							<label :for="extra.id">
 								{{ extra.name }}:
 								<span
-									v-if="!extra.validate(extra)"
+									v-if="!extra.validate(game_list)"
 									class="error"
 								>
 									{{ extra.error }}
@@ -125,12 +125,12 @@
 					<div
 						v-if="extra.type !== 'note'"
 						class="extra-input"
-						:class="extra.validate(extra) ? 'valid' : 'invalid'"
+						:class="extra.validate(game_list) ? 'valid' : 'invalid'"
 					>
 						<label :for="extra.id">
 							{{ extra.name }}:
 							<span
-								v-if="!extra.validate(extra)"
+								v-if="!extra.validate(game_list)"
 								class="error"
 							>
 								{{ extra.error }}
