@@ -24,7 +24,7 @@ let page = new Vue({
 				},
 			},
 			max: {
-				games: [ `bananagrams`, `mc-minigames` ],
+				games: [ `bananagrams`, `free-board-game-suggest` ],
 				categories: [ `tts`, `social-deduction` ],
 				hide: {
 					games: [ `fake-artist` ],
@@ -204,6 +204,31 @@ let page = new Vue({
 						name: `Suggestion`,
 						type: `text`,
 						id: `new-game-suggestion`,
+						value: ``,
+						error: ``,
+						validate(game_list) {
+							if (this.value.length === 0) {
+								this.error = `Error: Cannot leave suggestion blank.`;
+								return false;
+							};
+							this.error = ``;
+							return true;
+						}
+					},
+				],
+				selected: false,
+			},
+			{
+				name: `Board Games - Free Options Only (Suggest a Game)`,
+				id: `free-board-game-suggest`,
+				categories: [
+					`suggest`,
+				],
+				extra: [
+					{
+						name: `Suggestion`,
+						type: `text`,
+						id: `new-free-board-game-suggestion`,
 						value: ``,
 						error: ``,
 						validate(game_list) {
