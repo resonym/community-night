@@ -283,6 +283,9 @@ let page = new Vue({
 
 			host = this.hosts[host];
 
+			host.hide.games.push(...hide_games);
+			host.hide.categories.push(...hide_categories);
+
 			// Check each game in the array
 			for (var game of this.game_list) {
 
