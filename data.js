@@ -132,6 +132,15 @@ let page = new Vue({
 				selected: false,
 			},
 			{
+				name: `Viticulture (Tabletopia)`,
+				id: `viticulture`,
+				categories: [
+					`tabletop`, `tabletopia`
+				],
+				extra: [],
+				selected: false,
+			},
+			{
 				name: `Tabletop Simulator (Suggest Game)`,
 				id: `tts`,
 				categories: [
@@ -156,15 +165,6 @@ let page = new Vue({
 					},
 					{ type: `note`, value: `<i>This game is paid, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/286160/Tabletop_Simulator/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
 				],
-				selected: false,
-			},
-			{
-				name: `Viticulture (Tabletopia)`,
-				id: `viticulture`,
-				categories: [
-					`tabletop`, `tabletopia`
-				],
-				extra: [],
 				selected: false,
 			},
 			{
