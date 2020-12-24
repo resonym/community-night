@@ -236,6 +236,7 @@ let page = new Vue({
 							return true;
 						}
 					},
+					{ type: `note`, value: `This suggestion box is for future game nights, not the one that this voting document is for. All suggestions are reviewed and considered before being added to the voting list.` },
 				],
 				selected: false,
 			},
