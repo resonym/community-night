@@ -96,6 +96,27 @@ let page = new Vue({
 				selected: false,
 			},
 			{
+				// Hosted on https://longwave.web.app
+				name: `Wavelength`,
+				id: `wavelength`,
+				categories: [
+					`tabletop`
+				],
+				selected: false,
+				extra: [
+					{ type: `note`, value: `Gameplay of Wavelength can be previewed <a href="https://www.youtube.com/watch?v=pS-XT-5R26Q" target="_blank" rel="noopener">on YouTube</a>` }
+				]
+			},
+			{
+				// Hosted on https://colonist.io
+				name: `Settlers of Catan`,
+				id: `settlers-of-catan`,
+				categories: [
+					`tabletop`
+				],
+				selected: false,
+			},
+			{
 				name: `Monarch (Tabletop Simulator)`,
 				id: `monarch`,
 				categories: [
