@@ -30,7 +30,21 @@ let page = new Vue({
 					games: [ `fake-artist` ],
 					categories: [ `resonym` ]
 				},
-			}
+			},
+			chicken: {
+				games: [
+					`among-us`,
+					`bananagrams`,
+					`wavelength`,
+					`project-winter`,
+					`free-board-game-suggest`
+				],
+				categories: [ `jackbox`, `tts`, `tabletopia` ],
+				hide: {
+					games: [`monarch`],
+					categories: []
+				},
+			},
 		},
 		game_list: [
 			{
