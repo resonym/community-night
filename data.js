@@ -48,15 +48,26 @@ let page = new Vue({
 		},
 		game_list: [
 			{
-				name: `Among Us`,
+				name: `Among Us (Vanilla)`,
 				id: `among-us`,
 				min_players: 5,
 				categories: [
 					`social-deduction`, `video`
 				],
 				extra: [
-					{ type: `note`, value: `<i>This game is paid when on a PC, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/945360/Among_Us/" target=_blank rel=noopener>Purchase on Steam</a></i>`},
+					{ type: `note`, value: `<i>This game is paid when on a PC, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/945360/Among_Us/" target=_blank rel=noopener>Purchase on Steam</a></i>` },
 					{ type: `note`, value: `<i>You can get this game for free (with ads) on the Apple App Store and Google Play Store:<br><a href="https://apps.apple.com/us/app/among-us/id1351168404" target=_blank rel=noopener>Get on Apple App Store</a><br><a href="https://play.google.com/store/apps/details?id=com.innersloth.spacemafia&hl=en_CA&gl=US" target=_blank rel=noopener>Get on Google Play Store</a></i>` }
+				],
+				selected: false,
+			},
+			{
+				name: `Among Us (Modded)`,
+				id: `modded-among-us`,
+				min_players: 5,
+				categories: [ `video` ],
+				extra: [
+					{ type: `note`, value: `<i>This is for wanting to play Among Us with mods, unfortunately most mods only work on PC, so if you check this box you must be running Among Us through one of the desktop versions.</i>` },
+					{ type: `note`, value: `<i>This game is paid when on a PC, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/945360/Among_Us/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
 				],
 				selected: false,
 			},
