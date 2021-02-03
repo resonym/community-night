@@ -142,6 +142,16 @@ let page = new Vue({
 				selected: false,
 			},
 			{
+				// Hosted on https://ghostwriter.resonym.com
+				name: `Ghost Writer`,
+				id: `ghost-writer`,
+				categories: [
+					`tabletop`,
+					`resonym`
+				],
+				selected: false,
+			},
+			{
 				name: `Monarch (Tabletop Simulator)`,
 				id: `monarch`,
 				categories: [
