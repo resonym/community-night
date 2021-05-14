@@ -11,7 +11,7 @@ let page = new Vue({
 					`tabletop`, `jackbox`, `social-deduction`
 				],
 				hide: {
-					games: [ `viticulture`, `project-winter` ],
+					games: [ `viticulture`, `project-winter`, `first-class-trouble` ],
 					categories: []
 				},
 			},
@@ -61,13 +61,24 @@ let page = new Vue({
 				selected: false,
 			},
 			{
-				name: `Among Us (Modded)`,
+				name: `Among Us (Modded - Proximity Chat)`,
 				id: `modded-among-us`,
 				min_players: 5,
-				categories: [ `video` ],
+				categories: [ `video`, `social-deduction` ],
 				extra: [
 					{ type: `note`, value: `<i>This is for wanting to play Among Us with mods, unfortunately most mods only work on PC, so if you check this box you must be running Among Us through one of the desktop versions.</i>` },
-					{ type: `note`, value: `<i>This game is paid when on a PC, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/945360/Among_Us/" target=_blank rel=noopener>Purchase on Steam</a></i>` }
+					{ type: `note`, value: `<i>This game is paid when on a PC, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/945360/Among_Us/" target=_blank rel=noopener>Purchase on Steam</a></i>` },
+					{ type: `note`, value: `<i>The proximity voice chat mod that will be used is BetterCrewLink, you can download it from <a href="https://github.com/OhMyGuus/BetterCrewLink/releases/tag/v2.5.0" target=_blank rel=noopener>GitHub</a></i>`}
+				],
+				selected: false,
+			},
+			{
+				name: `First Class Trouble`,
+				id: `first-class-trouble`,
+				min_players: 6,
+				categories: [ `video`, `social-deduction` ],
+				extra: [
+					{ type: `note`, value: `<i>This game is a paid PC game, you should purchase and download it before the community game night if you are wanting to participate.<br><a href="https://store.steampowered.com/app/953880/First_Class_Trouble/" target=_blank rel=noopener>Purchase on Steam</a></i>` },
 				],
 				selected: false,
 			},
