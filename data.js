@@ -318,7 +318,7 @@ let page = new Vue({
 			let qs = new URLSearchParams(window.location.search);
 
 			// See if we are just displaying all games
-			if (qs.has(`a`) || qs.has(`view`)) { return this.game_list; };
+			if (this.all_games || this.view_games) { return this.game_list; };
 
 			let games = [];
 
@@ -329,6 +329,10 @@ let page = new Vue({
 			let hide_categories = qs.getAll(`hc`).map(x => x.toLowerCase());
 
 			host = this.hosts[host];
+
+			if (!host) {
+				return [];
+			};
 
 			host.hide.games.push(...hide_games);
 			host.hide.categories.push(...hide_categories);
@@ -377,6 +381,10 @@ let page = new Vue({
 				};
 			};
 			return true;
+		},
+		all_games() {
+			let qs = new URLSearchParams(window.location.search);
+			return qs.has(`a`);
 		},
 		view_games() {
 			let qs = new URLSearchParams(window.location.search);
@@ -459,9 +467,15 @@ let page = new Vue({
 			for (var game of this.game_list) {
 				if (game.selected) {
 
+					description += `\n - ${game.name}`;
+
+					if (this.all_games) {
+						description += ` (id: \`${game.id}\`)`
+					};
+
 					// Extras needed for information
 					if (game.extra) {
-						description += `\n - ${game.name} (`
+						description += ` (`
 
 						// show all extras
 						for (var extra of game.extra) {
@@ -472,12 +486,7 @@ let page = new Vue({
 						// Remove last comma
 						description = description.replace(/(,$)|($)/, `)`);
 						description = description.replace(/\(\)$/, ``);
-					}
-
-					// No extras to show
-					else {
-						description += `\n - ${game.name}`;
-					}
+					};
 				};
 			};
 
